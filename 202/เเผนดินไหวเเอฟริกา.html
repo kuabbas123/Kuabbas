@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แผนที่ข้อมูลทางธรณีวิทยา ทวีปแอฟริกา</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Sarabun', 'Segoe UI', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            padding: 20px;
+        }
+
+        /* ส่วนหัวเว็บไซต์ (Hero Section) ให้ดูมีลูกเล่นและโดดเด่น */
+        .hero-section {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .hero-section h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .hero-section p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* จัดวางแบบ Grid 3 คอลัมน์ */
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .map-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-card h2 {
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1e3a8a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        /* ส่วนกรอบรูปภาพ */
+        .img-wrapper {
+            width: 100%;
+            height: auto;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .img-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* ส่วนกล่องคำอธิบาย */
+        .description-box {
+            background-color: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 8px 10px;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.85rem;
+            color: #475569;
+            line-height: 1.4;
+        }
+
+        .description-box strong {
+            color: #0f172a;
+        }
+
+        /* Responsive สำหรับหน้าจอขนาดเล็ก */
+        @media (max-width: 1024px) {
+            .map-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ส่วนหัวเว็บไซต์ที่มีโลโก้/ป้ายกำกับเพิ่มความสวยงาม -->
+    <div class="hero-section">
+        <div class="hero-badge">🌍 Geographic & Geological Data</div>
+        <h1>แผนที่ข้อมูลทางธรณีวิทยาและแผ่นดินไหว ทวีปแอฟริกา</h1>
+        <p>รวบรวมและวิเคราะห์ข้อมูลตำแหน่งแผ่นดินไหว ความลึก และโครงสร้างทางธรณีวิทยา</p>
+    </div>
+
+    <!-- ส่วนแสดงแผนที่ -->
+    <div class="map-grid">
+        <!-- ภาพที่ 1 -->
+        <div class="map-card">
+            <h2>1. การกระจายตัวทางธรณีวิทยาแอฟริกาภาคกลางวันกลางคืน</h2>
+            <div class="img-wrapper">
+                <img src="img/กลางวันกลางคืน.png" alt="แผนที่การกระจายตัวทางธรณีวิทยาแอฟริกาภาคกลางวันกลางคืน">
+            </div>
+            <div class="description-box">
+                <strong>คำอธิบาย:</strong> แสดงภาพรวมการกระจายตัวของข้อมูลธรณีวิทยาและการตรวจสอบตำแหน่งสังเกตการณ์ในฝั่งทวีปแอฟริกาและเขตรอยต่อมหาสมุทร[cite: 1]
+            </div>
+        </div>
+
+        <!-- ภาพที่ 2 -->
+        <div class="map-card">
+            <h2>2. การกระจายตัวของจุดเกิดแผ่นดินไหวในแอฟริกา</h2>
+            <div class="img-wrapper">
+                <img src="img/ความรุนเเรงของผิดดินไหว.png" alt="แผนที่แสดงการกระจายตัวของจุดเกิดแผ่นดินไหวในทวีปแอฟริกา">
+            </div>
+            <div class="description-box">
+                <strong>คำอธิบาย:</strong> แสดงตำแหน่งจุดศูนย์กลางแผ่นดินไหว (Epicenter) โดยใช้เฉดสีแสดงถึงระดับความรุนแรงหรือขนาดของการสั่นสะเทือน (Magnitude) ในแต่ละพื้นที่[cite: 2]
+            </div>
+        </div>
+
+        <!-- ภาพที่ 3 -->
+        <div class="map-card">
+            <h2>3. การจำแนกความลึกของจุดเกิดแผ่นดินไหวในแอฟริกา</h2>
+            <div class="img-wrapper">
+                <img src="img/ความลึกความตื้น.png" alt="แผนที่จำแนกความลึกของจุดเกิดแผ่นดินไหวในแอฟริกา">
+            </div>
+            <div class="description-box">
+                <strong>คำอธิบาย:</strong> จำแนกความลึกของจุดศูนย์กลางแผ่นดินไหว (Focal Depth) เป็นลำดับระดับ ตั้งแต่ระดับตื้น (๕.๐ - ๑๐.๐ กม.) ไปจนถึงระดับลึก (๓๓.๐ - ๕๒.๒ กม.)[cite: 3]
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
