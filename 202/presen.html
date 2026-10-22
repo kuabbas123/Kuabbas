@@ -1,1 +1,1262 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>FlashFlood Watch | ศูนย์ความรู้และการรับมือภัยน้ำป่าไหลหลาก</title>
+
+    <meta name="description" content="ศูนย์ความรู้เกี่ยวกับน้ำป่าไหลหลาก สาเหตุ พื้นที่เสี่ยง สัญญาณเตือนภัย การเตรียมพร้อม การอพยพ และแนวทางปฏิบัติเพื่อความปลอดภัย">
+    <meta name="keywords" content="น้ำป่าไหลหลาก, น้ำท่วมฉับพลัน, สัญญาณเตือนภัย, การอพยพ, การป้องกันภัยพิบัติ">
+    <meta name="author" content="FlashFlood Watch">
+    <meta name="theme-color" content="#123b63">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #123b63;
+            --primary-light: #eaf3fb;
+            --secondary: #1976a5;
+            --accent: #f4b942;
+            --danger: #c62828;
+            --text: #263746;
+            --muted: #617182;
+            --surface: #ffffff;
+            --background: #f4f7fa;
+            --border: #e0e7ee;
+            --shadow: 0 8px 28px rgba(18, 59, 99, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Prompt', sans-serif;
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.8;
+        }
+
+        a {
+            text-underline-offset: 4px;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .navbar-brand {
+            color: var(--primary) !important;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .navbar .nav-link {
+            color: #405366;
+            font-size: 0.91rem;
+            font-weight: 400;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus {
+            color: var(--secondary);
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 105px 0 95px;
+            color: #fff;
+            background:
+                linear-gradient(110deg, rgba(9, 35, 61, 0.96), rgba(18, 59, 99, 0.80)),
+                url('https://images.unsplash.com/photo-1547683905-f686c993aae5?auto=format&fit=crop&w=1800&q=85')
+                center / cover no-repeat;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            right: -130px;
+            bottom: -190px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 50%;
+            box-shadow: 0 0 0 45px rgba(255,255,255,.035),
+                        0 0 0 90px rgba(255,255,255,.025);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border: 1px solid rgba(255,255,255,.3);
+            border-radius: 30px;
+            background: rgba(255,255,255,.09);
+            color: #fff;
+            font-size: .85rem;
+        }
+
+        .hero h1 {
+            max-width: 900px;
+            margin: 24px auto 18px;
+            font-size: clamp(2.1rem, 5vw, 3.65rem);
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .hero-description {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #e2ebf4;
+            font-size: 1.05rem;
+        }
+
+        .btn-primary-custom {
+            color: #fff;
+            background: var(--secondary);
+            border: 1px solid var(--secondary);
+        }
+
+        .btn-primary-custom:hover {
+            color: #fff;
+            background: #115e85;
+            border-color: #115e85;
+        }
+
+        .btn-outline-custom {
+            color: #fff;
+            border: 1px solid rgba(255,255,255,.7);
+        }
+
+        .btn-outline-custom:hover {
+            color: var(--primary);
+            background: #fff;
+        }
+
+        .section {
+            padding: 76px 0;
+        }
+
+        .section-white {
+            background: var(--surface);
+        }
+
+        .section-heading {
+            max-width: 760px;
+            margin: 0 auto 42px;
+            text-align: center;
+        }
+
+        .section-kicker {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--secondary);
+            font-size: .85rem;
+            font-weight: 600;
+            letter-spacing: .6px;
+        }
+
+        .section-heading h2 {
+            color: var(--primary);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .section-heading p {
+            margin-top: 12px;
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        .content-card {
+            height: 100%;
+            padding: 27px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: var(--shadow);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 34px rgba(18,59,99,.12);
+        }
+
+        .icon-box {
+            display: inline-flex;
+            width: 54px;
+            height: 54px;
+            flex: 0 0 54px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            background: var(--primary-light);
+            color: var(--secondary);
+            font-size: 1.55rem;
+        }
+
+        .content-card h3,
+        .content-card h4 {
+            color: var(--primary);
+            font-size: 1.12rem;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        .content-card p,
+        .content-card li {
+            color: var(--muted);
+            font-size: .94rem;
+        }
+
+        .info-panel {
+            padding: 28px;
+            border: 1px solid #d6e5f2;
+            border-radius: 16px;
+            background: #f0f7fd;
+        }
+
+        .info-panel h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .warning-panel {
+            padding: 24px;
+            border: 1px solid #f1d58b;
+            border-left: 5px solid #e3a51b;
+            border-radius: 12px;
+            background: #fff9e8;
+        }
+
+        .danger-panel {
+            padding: 24px;
+            border: 1px solid #f0c7c7;
+            border-left: 5px solid var(--danger);
+            border-radius: 12px;
+            background: #fff3f3;
+        }
+
+        .step-number {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            flex: 0 0 40px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 22px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .step-item:last-child {
+            border-bottom: 0;
+        }
+
+        .step-item h3 {
+            color: var(--primary);
+            font-size: 1.08rem;
+            font-weight: 600;
+        }
+
+        .step-item p {
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        .check-list {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .check-list li {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 13px;
+        }
+
+        .check-list i {
+            margin-top: 5px;
+            color: #198754;
+        }
+
+        .emergency-section {
+            color: #fff;
+            background: linear-gradient(120deg, #8d1d27, #bd3038);
+        }
+
+        .emergency-section .section-heading h2,
+        .emergency-section .section-heading p,
+        .emergency-section .section-kicker {
+            color: #fff;
+        }
+
+        .emergency-card {
+            height: 100%;
+            padding: 23px 18px;
+            border: 1px solid rgba(255,255,255,.25);
+            border-radius: 14px;
+            background: rgba(255,255,255,.1);
+            text-align: center;
+        }
+
+        .emergency-card .number {
+            display: block;
+            margin: 6px 0;
+            font-size: 2.15rem;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .emergency-card a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .emergency-card a:hover {
+            text-decoration: underline;
+        }
+
+        .emergency-card p {
+            margin: 0;
+            color: #ffe7e7;
+            font-size: .86rem;
+        }
+
+        .reference-list li {
+            margin-bottom: 16px;
+            padding-left: 6px;
+            color: var(--muted);
+            overflow-wrap: anywhere;
+        }
+
+        .reference-list a {
+            color: #126b9b;
+        }
+
+        .site-footer {
+            padding: 32px 0;
+            color: #c5d0dc;
+            background: #10263b;
+        }
+
+        .site-footer a {
+            color: #e5edf5;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+            display: inline-flex;
+            width: 46px;
+            height: 46px;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 50%;
+            color: #fff;
+            background: var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,.18);
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary);
+        }
+
+        .small-note {
+            color: var(--muted);
+            font-size: .84rem;
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                padding: 76px 0 68px;
+            }
+
+            .section {
+                padding: 54px 0;
+            }
+
+            .content-card {
+                padding: 23px;
+            }
+
+            .hero-description {
+                font-size: .97rem;
+            }
+
+            .emergency-card .number {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- แถบนำทางหลัก -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm" aria-label="เมนูหลัก">
+        <div class="container">
+            <a class="navbar-brand fs-5" href="#home" aria-label="FlashFlood Watch หน้าแรก">
+                <i class="bi bi-water me-2" aria-hidden="true"></i>
+                FlashFlood Watch
+            </a>
+
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="เปิดหรือปิดเมนูนำทาง">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="#home">หน้าแรก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">ความรู้เกี่ยวกับน้ำป่า</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#signs">สัญญาณเตือน</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#prepare">การเตรียมพร้อม</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#response">การเอาตัวรอด</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#recovery">หลังน้ำลด</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-semibold text-danger" href="#emergency">
+                            <i class="bi bi-telephone-fill me-1" aria-hidden="true"></i>
+                            สายด่วนฉุกเฉิน
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- ส่วนแนะนำเว็บไซต์ -->
+        <header class="hero" id="home">
+            <div class="container hero-content text-center">
+                <span class="eyebrow">
+                    <i class="bi bi-shield-check" aria-hidden="true"></i>
+                    ศูนย์ความรู้ด้านความปลอดภัยจากภัยพิบัติ
+                </span>
+
+                <h1>รู้เท่าทันน้ำป่าไหลหลาก<br>เตรียมพร้อม ปลอดภัย ลดความสูญเสีย</h1>
+
+                <p class="hero-description">
+                    เรียนรู้สาเหตุ ปัจจัยเสี่ยง สัญญาณเตือนภัย
+                    และแนวทางปฏิบัติอย่างถูกต้องก่อนเกิดเหตุ
+                    ระหว่างเกิดเหตุ และหลังสถานการณ์คลี่คลาย
+                    เพื่อปกป้องชีวิตของตนเอง ครอบครัว และชุมชน
+                </p>
+
+                <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+                    <a href="#signs" class="btn btn-primary-custom btn-lg rounded-pill px-4">
+                        <i class="bi bi-exclamation-triangle me-2" aria-hidden="true"></i>
+                        เรียนรู้สัญญาณเตือน
+                    </a>
+                    <a href="#prepare" class="btn btn-outline-custom btn-lg rounded-pill px-4">
+                        <i class="bi bi-backpack me-2" aria-hidden="true"></i>
+                        เตรียมพร้อมรับมือ
+                    </a>
+                </div>
+
+                <p class="small mt-4 mb-0 text-white-50">
+                    หากมีประกาศเตือนภัยหรือพบสัญญาณอันตราย ให้ปฏิบัติตามคำสั่งอพยพทันที
+                    ไม่ควรรอให้เห็นน้ำไหลมาถึงตัว
+                </p>
+            </div>
+        </header>
+
+        <!-- แถบแจ้งเตือน -->
+        <section class="py-4 bg-white border-bottom" aria-label="ข้อควรจำเพื่อความปลอดภัย">
+            <div class="container">
+                <div class="danger-panel">
+                    <div class="d-flex align-items-start gap-3">
+                        <i class="bi bi-exclamation-octagon-fill text-danger fs-3"
+                           aria-hidden="true"></i>
+                        <div>
+                            <h2 class="h5 fw-bold text-danger mb-2">หลักความปลอดภัยที่สำคัญที่สุด</h2>
+                            <p class="mb-0">
+                                เมื่อสงสัยว่าจะเกิดน้ำป่าไหลหลาก ให้รีบออกจากลำห้วย
+                                ร่องน้ำ พื้นที่ลุ่ม และเชิงเขาที่มีความเสี่ยง
+                                ไปยังพื้นที่สูงและปลอดภัยตามเส้นทางอพยพ
+                                ห้ามเดินหรือขับรถฝ่ากระแสน้ำ และอย่ากลับเข้าไปในพื้นที่เสี่ยง
+                                จนกว่าเจ้าหน้าที่จะประกาศว่าปลอดภัย
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ความรู้พื้นฐาน -->
+        <section class="section section-white" id="about">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">01 / KNOWLEDGE</span>
+                    <h2>น้ำป่าไหลหลากคืออะไร</h2>
+                    <p>
+                        ทำความเข้าใจลักษณะของภัยธรรมชาติที่สามารถเกิดขึ้นอย่างรวดเร็ว
+                        และส่งผลกระทบรุนแรงต่อชีวิต ทรัพย์สิน และสิ่งแวดล้อม
+                    </p>
+                </div>
+
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-7">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-water" aria-hidden="true"></i>
+                            </div>
+
+                            <h3>ความหมายของน้ำป่าไหลหลาก</h3>
+                            <p>
+                                <strong>น้ำป่าไหลหลาก (Flash Flood)</strong>
+                                คือ ภาวะที่น้ำจากพื้นที่ต้นน้ำหรือพื้นที่สูงไหลลงสู่พื้นที่ต่ำอย่างรวดเร็ว
+                                มักเกิดจากฝนตกหนักในช่วงเวลาสั้น ๆ หรือฝนตกสะสมจนพื้นที่ไม่สามารถดูดซับน้ำได้ทัน
+                                ทำให้เกิดกระแสน้ำที่มีความเร็วและปริมาณมาก
+                            </p>
+                            <p>
+                                กระแสน้ำอาจพัดพาดิน โคลน หิน กิ่งไม้ และเศษวัสดุต่าง ๆ
+                                ทำให้ถนน สะพาน บ้านเรือน และพื้นที่เกษตรกรรมได้รับความเสียหาย
+                                ผู้ที่อยู่ใกล้ลำห้วย เชิงเขา หรือทางน้ำธรรมชาติจึงจำเป็นต้องเฝ้าระวังเป็นพิเศษ
+                            </p>
+
+                            <div class="info-panel mt-4">
+                                <h3><i class="bi bi-info-circle me-2" aria-hidden="true"></i>ข้อแตกต่างที่ควรทราบ</h3>
+                                <p class="mb-0">
+                                    น้ำป่าไหลหลากเน้นการไหลของน้ำจากพื้นที่สูงอย่างรวดเร็ว
+                                    ส่วนดินโคลนถล่มเป็นการเคลื่อนตัวของดิน หิน และวัสดุบนลาดเขา
+                                    ทั้งสองเหตุการณ์อาจเกิดร่วมกันได้ จึงควรเฝ้าระวังทั้งน้ำและความมั่นคงของลาดเขา
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="row g-3 h-100">
+                            <div class="col-12">
+                                <article class="content-card">
+                                    <div class="icon-box">
+                                        <i class="bi bi-cloud-rain-heavy" aria-hidden="true"></i>
+                                    </div>
+                                    <h3>สาเหตุและปัจจัยกระตุ้น</h3>
+                                    <ul class="mb-0 ps-3">
+                                        <li>ฝนตกหนักต่อเนื่องหรือฝนตกหนักเฉพาะพื้นที่ต้นน้ำ</li>
+                                        <li>ดินอิ่มตัวด้วยน้ำจนซึมน้ำเพิ่มได้น้อยลง</li>
+                                        <li>พื้นที่ลาดชันและลำน้ำที่ระบายน้ำได้รวดเร็ว</li>
+                                        <li>การเปลี่ยนแปลงการใช้ประโยชน์ที่ดินและสิ่งกีดขวางทางน้ำในบางพื้นที่</li>
+                                    </ul>
+                                </article>
+                            </div>
+
+                            <div class="col-12">
+                                <article class="content-card">
+                                    <div class="icon-box">
+                                        <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                                    </div>
+                                    <h3>พื้นที่ที่ควรเฝ้าระวัง</h3>
+                                    <ul class="mb-0 ps-3">
+                                        <li>บริเวณเชิงเขาและพื้นที่ลาดชัน</li>
+                                        <li>ชุมชนที่ตั้งอยู่ริมลำห้วยหรือทางน้ำผ่าน</li>
+                                        <li>พื้นที่ลุ่มต่ำที่รับน้ำจากภูเขา</li>
+                                        <li>เส้นทางข้ามลำธารและสะพานที่มีน้ำไหลผ่าน</li>
+                                        <li>พื้นที่ที่เคยเกิดน้ำป่าหรือดินโคลนถล่ม</li>
+                                    </ul>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- สัญญาณเตือน -->
+        <section class="section" id="signs">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">02 / EARLY WARNING</span>
+                    <h2>สัญญาณเตือนภัยน้ำป่าไหลหลาก</h2>
+                    <p>
+                        สังเกตความเปลี่ยนแปลงของสภาพอากาศ ลำน้ำ และพื้นที่โดยรอบ
+                        โดยไม่จำเป็นต้องเข้าไปใกล้จุดเสี่ยงเพื่อพิสูจน์สัญญาณ
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-cloud-lightning-rain" aria-hidden="true"></i>
+                            </div>
+                            <h3>1. ฝนตกหนักต่อเนื่อง</h3>
+                            <p>
+                                มีฝนตกหนักในพื้นที่หรือบริเวณภูเขาต้นน้ำเป็นเวลาต่อเนื่อง
+                                โดยเฉพาะเมื่อมีประกาศเตือนฝนตกหนักหรือฝนตกหนักมาก
+                                ควรเตรียมอพยพและติดตามประกาศจากทางราชการ
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-droplet-half" aria-hidden="true"></i>
+                            </div>
+                            <h3>2. น้ำเปลี่ยนสีหรือขุ่นผิดปกติ</h3>
+                            <p>
+                                น้ำในลำห้วยเปลี่ยนเป็นสีขุ่น มีตะกอนหรือเศษวัสดุลอยมา
+                                อาจเป็นสัญญาณว่าน้ำจากต้นน้ำกำลังพัดพาดินและวัสดุลงมา
+                                ควรออกห่างจากลำน้ำทันที
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
+                            </div>
+                            <h3>3. ระดับน้ำเพิ่มขึ้นอย่างรวดเร็ว</h3>
+                            <p>
+                                น้ำสูงขึ้นผิดปกติภายในเวลาไม่นาน แม้ก่อนหน้านั้นระดับน้ำจะต่ำ
+                                ควรออกจากตลิ่งและทางน้ำโดยเร็ว
+                                ไม่ควรรอประเมินว่าน้ำจะสูงขึ้นอีกเท่าใด
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-volume-up" aria-hidden="true"></i>
+                            </div>
+                            <h3>4. มีเสียงดังผิดปกติจากต้นน้ำ</h3>
+                            <p>
+                                ได้ยินเสียงคำรามหรือเสียงดังคล้ายก้อนหินและเศษไม้กระแทกกัน
+                                จากบริเวณภูเขาหรือลำห้วย
+                                ให้รีบเคลื่อนย้ายไปยังพื้นที่สูงโดยไม่เข้าไปตรวจสอบ
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-tree" aria-hidden="true"></i>
+                            </div>
+                            <h3>5. พบดินแตกร้าวหรือดินเคลื่อนตัว</h3>
+                            <p>
+                                พื้นดินแตกร้าว ต้นไม้เอียงผิดปกติ มีน้ำขุ่นผุดจากลาดเขา
+                                หรือพบก้อนดินและหินเคลื่อนตัว
+                                อาจเป็นสัญญาณอันตรายของดินถล่มร่วมกับน้ำป่า
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-megaphone" aria-hidden="true"></i>
+                            </div>
+                            <h3>6. ได้รับประกาศเตือนภัย</h3>
+                            <p>
+                                มีประกาศจากหน่วยงานราชการ ผู้นำชุมชน หรือระบบเตือนภัย
+                                ให้ปฏิบัติตามคำแนะนำและคำสั่งอพยพทันที
+                                แม้ยังไม่พบความเปลี่ยนแปลงของระดับน้ำด้วยตนเอง
+                            </p>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="warning-panel mt-4">
+                    <h3 class="h5 fw-bold mb-2">
+                        <i class="bi bi-exclamation-triangle-fill me-2 text-warning"
+                           aria-hidden="true"></i>
+                        อย่ารอให้พบสัญญาณครบทุกข้อ
+                    </h3>
+                    <p class="mb-0">
+                        สัญญาณเตือนอาจไม่ปรากฏครบทุกลักษณะ และน้ำป่าอาจมาถึงอย่างรวดเร็ว
+                        หากได้รับคำเตือนหรือประเมินแล้วว่ามีความเสี่ยง ให้รีบอพยพทันที
+                        อย่าใช้ความเงียบของลำน้ำหรือท้องฟ้าที่ดูแจ่มใสเป็นหลักประกันว่าปลอดภัย
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- การเตรียมพร้อม -->
+        <section class="section section-white" id="prepare">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">03 / PREPAREDNESS</span>
+                    <h2>แนวทางการเตรียมความพร้อมก่อนเกิดเหตุ</h2>
+                    <p>
+                        การเตรียมแผนอพยพและสิ่งของจำเป็นล่วงหน้า
+                        ช่วยลดความสับสนและเพิ่มโอกาสในการเข้าถึงพื้นที่ปลอดภัย
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-map" aria-hidden="true"></i>
+                            </div>
+                            <h3>1. วางแผนอพยพสำหรับครอบครัว</h3>
+                            <ul class="check-list mt-3 mb-0">
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>ศึกษาพื้นที่เสี่ยงและจุดปลอดภัยที่อยู่สูงกว่าบริเวณโดยรอบ</span></li>
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>กำหนดเส้นทางอพยพอย่างน้อยหนึ่งเส้นทางสำรอง</span></li>
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>ตกลงจุดนัดพบและวิธีติดต่อเมื่อสมาชิกพลัดหลง</span></li>
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>ช่วยเหลือเด็ก ผู้สูงอายุ ผู้พิการ และผู้ที่ต้องการความช่วยเหลือเป็นพิเศษ</span></li>
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>ปฏิบัติตามแผนอพยพและคำแนะนำของเจ้าหน้าที่ในพื้นที่</span></li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-backpack" aria-hidden="true"></i>
+                            </div>
+                            <h3>2. จัดเตรียมถุงยังชีพฉุกเฉิน</h3>
+                            <ul class="check-list mt-3 mb-0">
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>น้ำดื่มสะอาดและอาหารที่เก็บรักษาได้</span></li>
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>ยาประจำตัว ชุดปฐมพยาบาล และอุปกรณ์ทางการแพทย์ที่จำเป็น</span></li>
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>ไฟฉาย ถ่านสำรอง วิทยุพกพา และแบตเตอรี่สำรอง</span></li>
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>โทรศัพท์มือถือ ที่ชาร์จ และรายชื่อผู้ติดต่อฉุกเฉิน</span></li>
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>สำเนาเอกสารสำคัญและเงินสด เก็บในซองกันน้ำ</span></li>
+                                <li><i class="bi bi-check-circle-fill" aria-hidden="true"></i><span>เสื้อผ้า หน้ากากอนามัย และของใช้จำเป็นสำหรับสมาชิกในบ้าน</span></li>
+                            </ul>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-cloud-drizzle" aria-hidden="true"></i>
+                            </div>
+                            <h3>3. ติดตามข้อมูลและประกาศเตือนภัย</h3>
+                            <p>
+                                ตรวจสอบพยากรณ์อากาศ ประกาศเตือนภัย ปริมาณฝน และสถานการณ์น้ำ
+                                จากหน่วยงานที่รับผิดชอบอย่างสม่ำเสมอ
+                                โดยเฉพาะเมื่อมีฝนตกหนักหรืออาศัยอยู่ในพื้นที่เสี่ยง
+                            </p>
+                            <p class="mb-0">
+                                ควรเปิดรับการแจ้งเตือนจากหน่วยงานท้องถิ่น
+                                และแจ้งสมาชิกในครอบครัวให้ทราบเมื่อมีประกาศสำคัญ
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-house-check" aria-hidden="true"></i>
+                            </div>
+                            <h3>4. เตรียมบ้านและทรัพย์สิน</h3>
+                            <p>
+                                จัดเก็บเอกสารและสิ่งของจำเป็นไว้ในที่หยิบได้ง่าย
+                                วางแผนเคลื่อนย้ายสัตว์เลี้ยงอย่างปลอดภัย
+                                และทำความเข้าใจวิธีปิดระบบสาธารณูปโภคของบ้าน
+                            </p>
+                            <p class="mb-0">
+                                การปิดไฟฟ้าหรือแก๊สให้ทำเฉพาะเมื่อเข้าถึงอุปกรณ์ได้อย่างปลอดภัย
+                                และไม่ต้องเดินผ่านน้ำท่วมหรือเข้าใกล้สายไฟ
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- วิธีปฏิบัติเมื่อเกิดเหตุ -->
+        <section class="section" id="response">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">04 / EMERGENCY RESPONSE</span>
+                    <h2>วิธีปฏิบัติเมื่อเกิดน้ำป่าไหลหลาก</h2>
+                    <p>
+                        ให้ความสำคัญกับการรักษาชีวิตเป็นอันดับแรก
+                        และหลีกเลี่ยงการกระทำที่เพิ่มความเสี่ยงโดยไม่จำเป็น
+                    </p>
+                </div>
+
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-7">
+                        <article class="content-card">
+                            <h3 class="mb-3">ขั้นตอนการปฏิบัติในสถานการณ์ฉุกเฉิน</h3>
+
+                            <div class="step-item">
+                                <span class="step-number">1</span>
+                                <div>
+                                    <h3>หยุดกิจกรรมและประเมินทางหนีอย่างรวดเร็ว</h3>
+                                    <p>
+                                        เมื่อได้รับการเตือนหรือพบสัญญาณอันตราย
+                                        ให้หยุดกิจกรรมใกล้ลำน้ำและพื้นที่เสี่ยง
+                                        แล้วเคลื่อนย้ายไปยังพื้นที่สูงตามเส้นทางที่ปลอดภัยทันที
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <span class="step-number">2</span>
+                                <div>
+                                    <h3>อพยพออกจากทางน้ำและเชิงเขา</h3>
+                                    <p>
+                                        ออกจากลำห้วย ร่องน้ำ พื้นที่ลุ่ม และบริเวณที่น้ำไหลผ่าน
+                                        ไปยังพื้นที่สูงที่มั่นคง หลีกเลี่ยงเส้นทางที่น้ำกำลังไหล
+                                        และอย่าเข้าไปในหุบเขาหรือทางน้ำเพื่อหาทางลัด
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <span class="step-number">3</span>
+                                <div>
+                                    <h3>ช่วยเหลือผู้ที่ต้องการความช่วยเหลือโดยไม่เสี่ยงชีวิต</h3>
+                                    <p>
+                                        แจ้งเตือนสมาชิกในครอบครัว เพื่อนบ้าน และผู้ที่ต้องการความช่วยเหลือ
+                                        หากการช่วยเหลือจำเป็นต้องเข้าไปในกระแสน้ำ
+                                        ให้แจ้งเจ้าหน้าที่กู้ภัยแทนการลงไปช่วยด้วยตนเอง
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <span class="step-number">4</span>
+                                <div>
+                                    <h3>หลีกเลี่ยงกระแสน้ำและเส้นทางที่ถูกน้ำท่วม</h3>
+                                    <p>
+                                        ห้ามเดิน ว่ายน้ำ หรือขับรถฝ่ากระแสน้ำ
+                                        หลีกเลี่ยงสะพานและถนนที่ถูกน้ำท่วมหรือมีโครงสร้างเสียหาย
+                                        และอย่าพยายามข้ามทางน้ำเพื่อกลับไปยังบ้าน
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="step-item">
+                                <span class="step-number">5</span>
+                                <div>
+                                    <h3>ติดต่อขอความช่วยเหลือและติดตามประกาศ</h3>
+                                    <p>
+                                        แจ้งตำแหน่งของตนเอง จำนวนผู้ประสบภัย และลักษณะอันตราย
+                                        ให้เจ้าหน้าที่ทราบอย่างชัดเจน
+                                        จากนั้นติดตามคำแนะนำและรอในบริเวณปลอดภัย
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="danger-panel mb-4">
+                            <h3 class="h5 fw-bold text-danger">
+                                <i class="bi bi-x-octagon-fill me-2" aria-hidden="true"></i>
+                                สิ่งที่ห้ามกระทำ
+                            </h3>
+                            <ul class="mb-0 ps-3">
+                                <li class="mb-2">ห้ามเดินหรือขับรถฝ่ากระแสน้ำที่ไหลผ่านถนน</li>
+                                <li class="mb-2">ห้ามลงไปในลำห้วยเพื่อถ่ายภาพหรือสังเกตระดับน้ำ</li>
+                                <li class="mb-2">ห้ามกลับไปเก็บทรัพย์สินเมื่อมีความเสี่ยง</li>
+                                <li class="mb-2">ห้ามสัมผัสสายไฟหรืออุปกรณ์ไฟฟ้าที่เปียกน้ำ</li>
+                                <li>ห้ามกลับเข้าพื้นที่ก่อนเจ้าหน้าที่อนุญาต</li>
+                            </ul>
+                        </div>
+
+                        <div class="info-panel">
+                            <h3>
+                                <i class="bi bi-house-up me-2" aria-hidden="true"></i>
+                                กรณีติดอยู่ภายในอาคาร
+                            </h3>
+                            <p>
+                                หากยังมีเส้นทางอพยพที่ปลอดภัย ให้เคลื่อนย้ายไปยังพื้นที่สูงตามคำแนะนำของเจ้าหน้าที่
+                                หากทางออกถูกน้ำปิดกั้น ห้ามฝ่ากระแสน้ำออกไปเอง
+                                ให้ย้ายไปยังตำแหน่งที่มั่นคงและสูงขึ้นเท่าที่ทำได้
+                                พร้อมโทรแจ้งเหตุและระบุตำแหน่งให้ชัดเจน
+                            </p>
+                            <p class="mb-0">
+                                อย่าปีนขึ้นหลังคาหรือเข้าไปในพื้นที่ที่อาจติดค้าง
+                                เว้นแต่จำเป็นเพื่อหลีกเลี่ยงอันตรายที่ใกล้เข้ามา
+                                และควรทำตามคำแนะนำของเจ้าหน้าที่กู้ภัย
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- หลังน้ำลด -->
+        <section class="section section-white" id="recovery">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">05 / RECOVERY</span>
+                    <h2>แนวทางปฏิบัติหลังสถานการณ์คลี่คลาย</h2>
+                    <p>
+                        แม้ระดับน้ำลดลงแล้ว อาจยังมีอันตรายจากโครงสร้างเสียหาย
+                        ไฟฟ้ารั่ว น้ำปนเปื้อน และดินที่ไม่มั่นคง
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-shield-check" aria-hidden="true"></i>
+                            </div>
+                            <h3>1. ตรวจสอบความปลอดภัยก่อนกลับบ้าน</h3>
+                            <p>
+                                กลับเข้าพื้นที่เมื่อเจ้าหน้าที่อนุญาตแล้วเท่านั้น
+                                ระวังถนนทรุด สะพานเสียหาย ดินถล่ม และสิ่งปลูกสร้างที่อาจพังทลาย
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-lightning-charge" aria-hidden="true"></i>
+                            </div>
+                            <h3>2. ระวังอันตรายจากไฟฟ้า</h3>
+                            <p>
+                                ห้ามเปิดหรือสัมผัสอุปกรณ์ไฟฟ้าที่เปียกน้ำ
+                                หากพบสายไฟขาดหรือระบบไฟฟ้าเสียหาย ให้แจ้งหน่วยงานที่รับผิดชอบ
+                                และให้ช่างผู้มีความรู้ตรวจสอบก่อนใช้งาน
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-droplet" aria-hidden="true"></i>
+                            </div>
+                            <h3>3. ระวังน้ำและอาหารปนเปื้อน</h3>
+                            <p>
+                                ใช้น้ำดื่มสะอาดที่มั่นใจว่าปลอดภัย
+                                ทิ้งอาหารที่สัมผัสน้ำท่วมหรือสงสัยว่าปนเปื้อน
+                                และหลีกเลี่ยงการสัมผัสน้ำที่อาจมีสิ่งปฏิกูลหรือสารเคมี
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-bandaid" aria-hidden="true"></i>
+                            </div>
+                            <h3>4. ดูแลสุขภาพและบาดแผล</h3>
+                            <p>
+                                ทำความสะอาดร่างกายหลังสัมผัสน้ำสกปรก
+                                ดูแลบาดแผลให้สะอาด และขอรับคำแนะนำจากบุคลากรทางการแพทย์
+                                หากมีอาการผิดปกติหรือได้รับบาดเจ็บ
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-camera" aria-hidden="true"></i>
+                            </div>
+                            <h3>5. บันทึกความเสียหายอย่างปลอดภัย</h3>
+                            <p>
+                                บันทึกภาพทรัพย์สินที่เสียหายเมื่อพื้นที่ปลอดภัยแล้ว
+                                เก็บเอกสารที่เกี่ยวข้องและติดต่อหน่วยงานเพื่อสอบถาม
+                                ขั้นตอนการขอรับความช่วยเหลือหรือเยียวยาตามหลักเกณฑ์
+                            </p>
+                        </article>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <article class="content-card">
+                            <div class="icon-box">
+                                <i class="bi bi-people" aria-hidden="true"></i>
+                            </div>
+                            <h3>6. ฟื้นฟูชุมชนและทบทวนแผน</h3>
+                            <p>
+                                ประสานงานกับชุมชนเพื่อทำความสะอาดและฟื้นฟูพื้นที่
+                                ติดตามคำแนะนำของหน่วยงานท้องถิ่น
+                                และทบทวนแผนอพยพเพื่อเตรียมพร้อมสำหรับเหตุการณ์ในอนาคต
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- หมายเลขฉุกเฉิน -->
+        <section class="section emergency-section" id="emergency">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">06 / EMERGENCY CONTACTS</span>
+                    <h2>หมายเลขโทรศัพท์ติดต่อฉุกเฉิน</h2>
+                    <p>
+                        เลือกติดต่อหน่วยงานให้ตรงกับลักษณะเหตุการณ์
+                        แจ้งสถานที่เกิดเหตุและรายละเอียดให้ชัดเจน
+                    </p>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-6 col-lg-3">
+                        <div class="emergency-card">
+                            <i class="bi bi-telephone-inbound fs-3" aria-hidden="true"></i>
+                            <span class="number"><a href="tel:1784">1784</a></span>
+                            <p class="fw-semibold">กรมป้องกันและบรรเทาสาธารณภัย</p>
+                            <p class="mt-2">แจ้งเหตุและขอความช่วยเหลือด้านสาธารณภัย</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="emergency-card">
+                            <i class="bi bi-heart-pulse fs-3" aria-hidden="true"></i>
+                            <span class="number"><a href="tel:1669">1669</a></span>
+                            <p class="fw-semibold">การแพทย์ฉุกเฉิน</p>
+                            <p class="mt-2">ผู้บาดเจ็บ ผู้ป่วยฉุกเฉิน หรือผู้ต้องการความช่วยเหลือทางการแพทย์</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="emergency-card">
+                            <i class="bi bi-shield-fill-exclamation fs-3" aria-hidden="true"></i>
+                            <span class="number"><a href="tel:191">191</a></span>
+                            <p class="fw-semibold">แจ้งเหตุด่วนเหตุร้าย</p>
+                            <p class="mt-2">เหตุฉุกเฉินที่ต้องการความช่วยเหลือจากตำรวจ</p>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-3">
+                        <div class="emergency-card">
+                            <i class="bi bi-signpost-2 fs-3" aria-hidden="true"></i>
+                            <span class="number"><a href="tel:1193">1193</a></span>
+                            <p class="fw-semibold">ตำรวจทางหลวง</p>
+                            <p class="mt-2">สอบถามหรือแจ้งเหตุเกี่ยวกับความปลอดภัยบนทางหลวง</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-3 rounded-3" style="background:rgba(255,255,255,.1)">
+                    <p class="mb-0 small">
+                        <i class="bi bi-info-circle me-2" aria-hidden="true"></i>
+                        หมายเลขข้างต้นเป็นช่องทางติดต่อสำหรับเหตุแต่ละประเภท
+                        ควรตรวจสอบข้อมูลกับหน่วยงานทางการเป็นระยะ
+                        และใช้หมายเลขที่เหมาะสมกับสถานการณ์จริง
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- แหล่งข้อมูลและเอกสารอ้างอิง -->
+        <section class="section section-white" id="references">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="section-kicker">07 / REFERENCES</span>
+                    <h2>แหล่งข้อมูลและเอกสารอ้างอิง</h2>
+                    <p>
+                        ควรตรวจสอบข้อมูลล่าสุดจากหน่วยงานภาครัฐ
+                        โดยเฉพาะประกาศเตือนภัย พยากรณ์อากาศ และคำแนะนำในภาวะฉุกเฉิน
+                    </p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <article class="content-card">
+                            <ol class="reference-list mb-0">
+                                <li>
+                                    <strong>กรมป้องกันและบรรเทาสาธารณภัย กระทรวงมหาดไทย.</strong>
+                                    ข้อมูลการป้องกันและบรรเทาสาธารณภัย
+                                    <br>
+                                    เว็บไซต์:
+                                    <a href="https://www.disaster.go.th/" target="_blank" rel="noopener noreferrer">
+                                        https://www.disaster.go.th/
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <strong>กรมอุตุนิยมวิทยา.</strong>
+                                    ข้อมูลพยากรณ์อากาศและประกาศเตือนภัยทางอุตุนิยมวิทยา
+                                    <br>
+                                    เว็บไซต์:
+                                    <a href="https://www.tmd.go.th/" target="_blank" rel="noopener noreferrer">
+                                        https://www.tmd.go.th/
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <strong>กรมทรัพยากรธรณี กระทรวงทรัพยากรธรรมชาติและสิ่งแวดล้อม.</strong>
+                                    ข้อมูลด้านธรณีพิบัติภัย ดินถล่ม และพื้นที่เสี่ยงภัย
+                                    <br>
+                                    เว็บไซต์:
+                                    <a href="https://www.dmr.go.th/" target="_blank" rel="noopener noreferrer">
+                                        https://www.dmr.go.th/
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <strong>สถาบันสารสนเทศทรัพยากรน้ำ (องค์การมหาชน).</strong>
+                                    ข้อมูลสถานการณ์น้ำและระบบคลังข้อมูลน้ำแห่งชาติ
+                                    <br>
+                                    เว็บไซต์:
+                                    <a href="https://www.thaiwater.net/" target="_blank" rel="noopener noreferrer">
+                                        https://www.thaiwater.net/
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <strong>สถาบันการแพทย์ฉุกเฉินแห่งชาติ.</strong>
+                                    ข้อมูลเกี่ยวกับระบบการแพทย์ฉุกเฉินและการขอความช่วยเหลือ
+                                    <br>
+                                    เว็บไซต์:
+                                    <a href="https://www.niems.go.th/" target="_blank" rel="noopener noreferrer">
+                                        https://www.niems.go.th/
+                                    </a>
+                                </li>
+                            </ol>
+
+                            <hr class="my-4">
+
+                            <p class="small-note mb-0">
+                                หมายเหตุ: รายการข้างต้นเป็นแหล่งข้อมูลสำหรับศึกษาค้นคว้าเพิ่มเติม
+                                ไม่ใช่การอ้างอิงเอกสารเฉพาะฉบับที่ตรวจสอบแล้วทั้งหมด
+                                หากนำเว็บไซต์นี้ไปใช้ในรายงานทางวิชาการ
+                                ควรระบุชื่อเอกสาร ผู้จัดทำ ปีที่เผยแพร่ และวันที่สืบค้น
+                                ตามเอกสารจริงที่นำมาใช้อ้างอิง
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ส่วนท้ายเว็บไซต์ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row align-items-center g-3">
+                <div class="col-md-7">
+                    <div class="fw-semibold text-white mb-1">
+                        <i class="bi bi-water me-2" aria-hidden="true"></i>
+                        FlashFlood Watch
+                    </div>
+                    <p class="small mb-0">
+                        ศูนย์ความรู้และการรับมือภัยน้ำป่าไหลหลาก
+                        เพื่อส่งเสริมความรู้ ความตระหนัก และความปลอดภัยของประชาชน
+                    </p>
+                </div>
+
+                <div class="col-md-5 text-md-end">
+                    <a href="#home" class="small text-decoration-none">กลับสู่หน้าแรก</a>
+                    <p class="small mt-2 mb-0">
+                        จัดทำโดย นายกูอับบาส กูยาหยา
+                    </p>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-4">
+
+            <p class="small text-center mb-0">
+                เว็บไซต์ให้ความรู้เพื่อการป้องกันภัยเบื้องต้น
+                ไม่ใช้แทนประกาศเตือนภัยหรือคำสั่งจากหน่วยงานผู้รับผิดชอบ
+            </p>
+        </div>
+    </footer>
+
+    <!-- ปุ่มกลับด้านบน -->
+    <button type="button" class="back-to-top"
+            id="backToTop"
+            aria-label="กลับไปด้านบน"
+            title="กลับไปด้านบน">
+        <i class="bi bi-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // ปิดเมนูบนโทรศัพท์เมื่อผู้ใช้เลือกลิงก์
+        document.querySelectorAll('#mainNavbar .nav-link').forEach(function (link) {
+            link.addEventListener('click', function () {
+                const navbar = document.getElementById('mainNavbar');
+
+                if (navbar.classList.contains('show')) {
+                    bootstrap.Collapse.getOrCreateInstance(navbar).hide();
+                }
+            });
+        });
+
+        // แสดงปุ่มกลับด้านบนเมื่อเลื่อนหน้าจอลง
+        const backToTop = document.getElementById('backToTop');
+
+        backToTop.style.display = 'none';
+
+        window.addEventListener('scroll', function () {
+            backToTop.style.display = window.scrollY > 350 ? 'inline-flex' : 'none';
+        }, { passive: true });
+
+        backToTop.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                    ? 'auto'
+                    : 'smooth'
+            });
+        });
+    </script>
+
+</body>
+</html>
