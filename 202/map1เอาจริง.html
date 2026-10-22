@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แผนที่ 14 จังหวัดภาคใต้</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #0f172a;
+        }
+
+        /* แผนที่เต็มหน้าจอ 100% */
+        #map {
+            width: 100vw;
+            height: 100vh;
+            z-index: 1;
+        }
+
+        /* ตกแต่ง Popup บนแผนที่ */
+        .leaflet-popup-content-wrapper {
+            background: #1e293b;
+            color: #fff;
+            border-radius: 8px;
+            padding: 6px;
+        }
+
+        .leaflet-popup-tip {
+            background: #1e293b;
+        }
+
+        .popup-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #38bdf8;
+            margin-bottom: 6px;
+        }
+
+        .popup-desc {
+            font-size: 13px;
+            color: #e2e8f0;
+            line-height: 1.5;
+        }
+
+        /* ตกแต่งกล่องเลือกเปลี่ยนแผนที่ดาวเทียม */
+        .leaflet-control-layers {
+            background: #1e293b !important;
+            color: #ffffff !important;
+            border: 1px solid #334155 !important;
+            border-radius: 8px !important;
+            padding: 6px 10px !important;
+            font-size: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+        }
+
+        .leaflet-control-layers-base label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            margin-bottom: 4px;
+        }
+        
+        .leaflet-control-layers-base label:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- พื้นที่แผนที่เต็มหน้าจอ -->
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        // ข้อมูลละเอียด 14 จังหวัดภาคใต้
+        const southernProvinces = [
+            { 
+                name: "ชุมพร", 
+                lat: 10.4930, lng: 99.1800, 
+                slogan: "ประตูสู่ภาคใต้",
+                desc: "จุดเริ่มต้นของภาคใต้ มีชายหาดสวยงาม เช่น หาดทรายรี ดำน้ำดูปะการังที่เกาะร้านเป็ดเกาะร้านไก่ และเป็นแหล่งปลูกกาแฟโรบัสต้าชั้นดี" 
+            },
+            { 
+                name: "ระนอง", 
+                lat: 9.9658, lng: 98.6348, 
+                slogan: "เมืองฝนแปดแดดสี่",
+                desc: "โดดเด่นเรื่องบ่อน้ำร้อนธรรมชาติคุณภาพสูง (บ่อน้ำร้อนรักษะวาริน) ภูเขาหญ้าอันสวยงามแปลกตา และเกาะพยาม" 
+            },
+            { 
+                name: "สุราษฎร์ธานี", 
+                lat: 9.1382, lng: 99.3217, 
+                slogan: "เมืองร้อยเกาะ เงาะอร่อย หอยใหญ่",
+                desc: "จังหวัดที่มีพื้นที่มากที่สุดในภาคใต้ มีเกาะชื่อดังระดับโลกอย่าง เกาะสมุย เกาะพะงัน เกาะเต่า และเขื่อนรัชชประภา (กุ้ยหลินเมืองไทย)" 
+            },
+            { 
+                name: "พังงา", 
+                lat: 8.4501, lng: 98.5255, 
+                slogan: "เมืองงามธรรมชาติ ถ้ำสวย",
+                desc: "สวรรค์ของนักดำน้ำ มีอุทยานแห่งชาติหมู่เกาะสิมิลัน หมู่เกาะสุรินทร์ อ่าวพังงา และเกาะตะปู (James Bond Island)" 
+            },
+            { 
+                name: "ภูเก็ต", 
+                lat: 7.8804, lng: 98.3923, 
+                slogan: "ไข่มุกแห่งอันดามัน",
+                desc: "เกาะที่ใหญ่ที่สุดในไทย แหล่งท่องเที่ยวระดับโลก ย่านตึกเก่าชิโนโปรตุกีส แหลมพรหมเทพ วัดชาลอง และหาดป่าตอง" 
+            },
+            { 
+                name: "กระบี่", 
+                lat: 8.0863, lng: 98.9063, 
+                slogan: "เมืองน่าอยู่ ผู้คนน่ารัก",
+                desc: "โดดเด่นด้วยภูเขาหินปูนริมทะเล มีหาดไร่เลย์ สระมรกต หมู่เกาะพีพี และเกาะห้อง เหมาะแก่การปีนผาและดำน้ำ" 
+            },
+            { 
+                name: "นครศรีธรรมราช", 
+                lat: 8.4304, lng: 99.9631, 
+                slogan: "เมืองประวัติศาสตร์ พระธาตุทองคำ",
+                desc: "เมืองศูนย์กลางธรรมะ กราบสักการะวัดพระมหาธาตุวรมหาวิหาร คีรีวง หมู่บ้านที่อากาศดีที่สุดในไทย และวัดเจดีย์ (ไอ้ไข่)" 
+            },
+            { 
+                name: "ตรัง", 
+                lat: 7.5563, lng: 99.6114, 
+                slogan: "เมืองพระยารัษฎา หมูย่างรสเลิศ",
+                desc: "ขึ้นชื่อเรื่องอาหารการกินและติ่มซำยามเช้า มีสถานที่ท่องเที่ยวอันซีนอย่าง ถ้ำมรกต เกาะกระดาน และเกาะมุก" 
+            },
+            { 
+                name: "พัทลุง", 
+                lat: 7.6167, lng: 100.0833, 
+                slogan: "เมืองหนังโนรา อู่นาข้าว",
+                desc: "กำเนิดศิลปะมโนราห์และหนังตลุง มีจุดชมวิวทะเลน้อย คลองปากประ (ยอยักษ์) และเขาอกทะลุ สัญลักษณ์ประจำจังหวัด" 
+            },
+            { 
+                name: "สตูล", 
+                lat: 6.6238, lng: 100.0674, 
+                slogan: "สงบ สะอาด ธรรมชาติบริสุทธิ์",
+                desc: "อุทยานธรณีโลกแห่งแรกของไทย โดดเด่นด้วยเกาะหลีเป๊ะ (มัลดีฟส์เมืองไทย) และอุทยานแห่งชาติหมู่เกาะตะรุเตา" 
+            },
+            { 
+                name: "สงขลา", 
+                lat: 7.1988, lng: 100.5951, 
+                slogan: "เมืองสองทะเล หาดสมิหลา",
+                desc: "เมืองศูนย์กลางเศรษฐกิจภาคใต้ มีหาดสมิหลาคู่รูปปั้นนางเงือก ย่านเมืองเก่าสงขลา และอำเภอหาดใหญ่ แหล่งช้อปปิ้งใหญ่" 
+            },
+            { 
+                name: "ปัตตานี", 
+                lat: 6.8663, lng: 101.2502, 
+                slogan: "เมืองมัสยิดกลาง ประวัติศาสตร์ยาวนาน",
+                desc: "เมืองพหุวัฒนธรรม มีมัสยิดกลางปัตตานี มัสยิดกรือเซะ และศาลเจ้าแม่ลิ้มกอเหนี่ยว ศูนย์รวมจิตใจของชาวไทยเชื้อสายจีน" 
+            },
+            { 
+                name: "ยะลา", 
+                lat: 6.5411, lng: 101.2804, 
+                slogan: "ใต้สุดสยาม เมืองงามชายแดน",
+                desc: "จังหวัดเดียวในภาคใต้ที่ไม่ติดทะเล มีผังเมืองสวยงามที่สุดในไทย ไฮไลท์คือ อำเภอเบตง ทะเลหมอกอัยเยอร์เวง และสกายวอล์ค" 
+            },
+            { 
+                name: "นราธิวาส", 
+                lat: 6.4255, lng: 101.8253, 
+                slogan: "ทักษิณราชตำหนัก ชนรักศาสนา",
+                desc: "จังหวัดใต้สุดฝั่งอ่าวไทย มีพระตำหนักตากสินราชนิเวศน์ หาดนราทัศน์ น้ำตกปาโจ และป่าพรุโต๊ะแดงอันสมบูรณ์" 
+            }
+        ];
+
+        // 1. สร้าง Layer แผนที่ปกติ (Google Maps Street View)
+        const streetMap = L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; Google Maps'
+        });
+
+        // 2. สร้าง Layer แผนที่ดาวเทียมพร้อมชื่อถนน/สถานที่ (Google Maps Hybrid/Satellite)
+        const satelliteMap = L.tileLayer('https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+            attribution: '&copy; Google Maps'
+        });
+
+        // 3. เริ่มต้นแสดงแผนที่
+        const map = L.map('map', {
+            zoomControl: false,
+            layers: [streetMap] // เริ่มต้นด้วยแผนที่ปกติ
+        }).setView([8.5, 99.8], 7);
+
+        // ย้ายปุ่ม Zoom ไว้มุมซ้ายบน
+        L.control.zoom({ position: 'topleft' }).addTo(map);
+
+        // 4. เพิ่มปุ่มสลับแผนที่ปกติ / ดาวเทียม ที่มุมขวาบน
+        const baseMaps = {
+            "🗺️ แผนที่ปกติ": streetMap,
+            "🛰️ ภาพดาวเทียม": satelliteMap
+        };
+        L.control.layers(baseMaps, null, { position: 'topright' }).addTo(map);
+
+        // 5. วนลูปปักหมุด 14 จังหวัดภาคใต้
+        southernProvinces.forEach((province) => {
+            const marker = L.marker([province.lat, province.lng]).addTo(map);
+            
+            const popupContent = `
+                <div class="popup-title">จ.${province.name}</div>
+                <div style="font-weight:600; color:#38bdf8; font-size:12px; margin-bottom:4px;">"${province.slogan}"</div>
+                <div class="popup-desc">${province.desc}</div>
+            `;
+            
+            marker.bindPopup(popupContent);
+        });
+    </script>
+</body>
+</html>
