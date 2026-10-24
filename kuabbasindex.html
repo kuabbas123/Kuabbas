@@ -3,31 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รวบรวมส่งงานวิชาคอมพิวเตอร์ - นายกูอับบาส กูยาหยา</title>
+    <title>รวบรวมส่งงาน - นายกูอับบาส กูยาหยา</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons CDN -->
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Font: Kanit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Kanit', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f7ff',
-                            100: '#e0effe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                        }
                     }
                 }
             }
@@ -36,302 +27,366 @@
     <style>
         body {
             font-family: 'Kanit', sans-serif;
-            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            background-color: #f8fafc;
         }
     </style>
 </head>
-<body class="min-h-screen py-8 px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
+<body class="min-h-screen text-slate-700 py-8 px-4 sm:px-6 lg:px-8">
 
-    <!-- Container -->
-    <div class="max-w-4xl mx-auto w-full space-y-6">
+    <div class="max-w-5xl mx-auto space-y-6">
 
         <!-- Header Profile Card -->
-        <div class="bg-white/90 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200/80 transition-all">
-            <div class="flex flex-col md:flex-row items-center gap-6">
-                <!-- Avatar Icon -->
-                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center shadow-md text-3xl font-bold flex-shrink-0">
+        <header class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+                <div class="w-20 h-20 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-3xl shadow-inner border border-sky-100 flex-shrink-0">
                     <i class="fa-solid fa-graduation-cap"></i>
                 </div>
-
-                <!-- Info -->
-                <div class="text-center md:text-left flex-1 space-y-2">
-                    <div class="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-1">
-                        ระบบส่งงานนักศึกษา
-                    </div>
+                <div>
+                    <span class="inline-block px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-medium mb-1">
+                        คลังเก็บงานนักศึกษา
+                    </span>
                     <h1 class="text-2xl sm:text-3xl font-bold text-slate-800 tracking-tight">
-                        รวบรวมส่งงานวิชาคอมพิวเตอร์
+                        ระบบรวบรวมส่งงาน
                     </h1>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-slate-600 text-sm sm:text-base pt-1">
-                        <p><i class="fa-solid fa-user text-blue-500 w-5"></i> <span class="font-medium text-slate-700">ชื่อ-นามสกุล:</span> นายกูฮับบาส มะดงแซ</p>
-                        <p><i class="fa-solid fa-id-card text-blue-500 w-5"></i> <span class="font-medium text-slate-700">รหัสนักศึกษา:</span> 6820210714</p>
-                        <p class="sm:col-span-2"><i class="fa-solid fa-chalkboard-user text-blue-500 w-5"></i> <span class="font-medium text-slate-700">อาจารย์ผู้สอน:</span> ผศ.ดร. วุฒิพงษ์ แสงมณี</p>
-                    </div>
+                    <p class="text-sm text-slate-500 mt-1">
+                        <span class="font-medium text-slate-700">นายกูฮับบาส มะดงแซ</span> • รหัส 6820210714
+                    </p>
+                    <p class="text-xs text-slate-400 mt-0.5">
+                        อาจารย์ผู้สอน: ผศ.ดร. วุฒิพงษ์ แสงมณี
+                    </p>
                 </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="flex gap-3 text-center w-full md:w-auto">
+                <div class="flex-1 md:flex-none px-5 py-3 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-lg font-bold text-sky-600">10</div>
+                    <div class="text-xs text-slate-400">งาน /202/</div>
+                </div>
+                <div class="flex-1 md:flex-none px-5 py-3 rounded-2xl bg-slate-50 border border-slate-100">
+                    <div class="text-lg font-bold text-emerald-600">5</div>
+                    <div class="text-xs text-slate-400">งาน /203/</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Controls -->
+        <div class="flex flex-col sm:flex-row gap-3 items-center justify-between">
+            <!-- Tabs -->
+            <div class="flex p-1.5 bg-slate-200/50 rounded-2xl w-full sm:w-auto gap-1">
+                <button onclick="switchTab('202')" id="btn-202" class="flex-1 sm:flex-none px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 bg-white text-sky-600 shadow-sm">
+                    <i class="fa-regular fa-folder-open mr-1.5 text-sky-500"></i> โฟลเดอร์ 202
+                </button>
+                <button onclick="switchTab('203')" id="btn-203" class="flex-1 sm:flex-none px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 text-slate-500 hover:text-slate-700">
+                    <i class="fa-regular fa-folder mr-1.5 text-emerald-500"></i> โฟลเดอร์ 203
+                </button>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="relative w-full sm:w-72">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 text-sm"></i>
+                <input type="text" id="searchInput" onkeyup="filterFiles()" placeholder="ค้นหาชื่อไฟล์..." 
+                    class="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white border border-slate-200/80 text-sm focus:outline-none focus:ring-2 focus:ring-sky-200 transition-all">
             </div>
         </div>
 
-        <!-- Main Content Area -->
-        <div class="bg-white/90 backdrop-blur-md rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden">
-            
-            <!-- Folder Navigation Tabs -->
-            <div class="flex border-b border-slate-200 bg-slate-50/50 p-2 gap-2">
-                <button onclick="switchTab('folder202')" id="tab-202" class="flex-1 py-3 px-4 rounded-xl font-medium text-sm sm:text-base transition-all duration-200 flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm border border-slate-200/60">
-                    <i class="fa-solid fa-folder-open text-amber-500 text-lg"></i>
-                    <span>โฟลเดอร์ 202</span>
-                    <span class="bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-bold ml-1">10</span>
-                </button>
-                <button onclick="switchTab('folder203')" id="tab-203" class="flex-1 py-3 px-4 rounded-xl font-medium text-sm sm:text-base transition-all duration-200 flex items-center justify-center gap-2 text-slate-600 hover:bg-white/60">
-                    <i class="fa-solid fa-folder text-amber-500 text-lg"></i>
-                    <span>โฟลเดอร์ 203</span>
-                    <span class="bg-slate-200 text-slate-700 text-xs px-2 py-0.5 rounded-full font-bold ml-1">5</span>
-                </button>
+        <!-- Content Area -->
+        <main>
+            <!-- FOLDER 202 -->
+            <div id="folder-202" class="grid grid-cols-1 md:grid-cols-2 gap-3.5">
+                
+                <!-- index.html -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">index.html</h3>
+                            <p class="text-xs text-slate-400">หน้าเว็บเพจย่อย</p>
+                        </div>
+                    </div>
+                    <a href="202/index.html" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-sky-50 text-slate-500 hover:text-sky-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดชม <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- earthquake_3d.html -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-sky-50 text-sky-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-cube"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">earthquake_3d.html</h3>
+                            <p class="text-xs text-slate-400">เว็บเพจ 3D แสดงแผ่นดินไหว</p>
+                        </div>
+                    </div>
+                    <a href="202/earthquake_3d.html" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-sky-50 text-slate-500 hover:text-sky-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดชม <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- earthquake_map.html -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">earthquake_map.html</h3>
+                            <p class="text-xs text-slate-400">แผนที่แผ่นดินไหวแบบโต้ตอบ</p>
+                        </div>
+                    </div>
+                    <a href="202/earthquake_map.html" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-sky-50 text-slate-500 hover:text-sky-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดชม <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- africa_earthquake.html -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-earth-africa"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">africa_earthquake.html</h3>
+                            <p class="text-xs text-slate-400">แผนที่แผ่นดินไหวแอฟริกา</p>
+                        </div>
+                    </div>
+                    <a href="202/africa_earthquake.html" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-sky-50 text-slate-500 hover:text-sky-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดชม <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- map1เอาจริง.html -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-map-pin"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">map1เอาจริง.html</h3>
+                            <p class="text-xs text-slate-400">เว็บแผนที่เส้นทาง</p>
+                        </div>
+                    </div>
+                    <a href="202/map1เอาจริง.html" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-sky-50 text-slate-500 hover:text-sky-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดชม <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- mymap.html -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-indigo-50 text-indigo-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">mymap.html</h3>
+                            <p class="text-xs text-slate-400">เว็บเพจแสดงแผนที่ส่วนตัว</p>
+                        </div>
+                    </div>
+                    <a href="202/mymap.html" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-sky-50 text-slate-500 hover:text-sky-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดชม <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- presen.html -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-purple-50 text-purple-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-file-powerpoint"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">presen.html</h3>
+                            <p class="text-xs text-slate-400">เว็บนำเสนอผลงาน</p>
+                        </div>
+                    </div>
+                    <a href="202/presen.html" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-sky-50 text-slate-500 hover:text-sky-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดชม <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- flowchart.pdf -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-rose-50 text-rose-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">flowchart.pdf</h3>
+                            <p class="text-xs text-slate-400">ผังงาน Flowchart (PDF)</p>
+                        </div>
+                    </div>
+                    <a href="202/flowchart.pdf" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-sky-50 text-slate-500 hover:text-sky-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดดู <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- กูอับบาส.xlsx -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-file-excel"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">กูอับบาส.xlsx</h3>
+                            <p class="text-xs text-slate-400">ตารางข้อมูล Excel</p>
+                        </div>
+                    </div>
+                    <a href="202/กูอับบาส.xlsx" download class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-500 hover:text-emerald-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        ดาวน์โหลด <i class="fa-solid fa-download text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- วิจัย.docx -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-sky-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-file-word"></i>
+                        </div>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">วิจัย.docx</h3>
+                            <p class="text-xs text-slate-400">เอกสารรายงาน Word</p>
+                        </div>
+                    </div>
+                    <a href="202/วิจัย.docx" download class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-blue-50 text-slate-500 hover:text-blue-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        ดาวน์โหลด <i class="fa-solid fa-download text-[10px]"></i>
+                    </a>
+                </div>
+
             </div>
 
-            <!-- Tab 202 Content -->
-            <div id="content-202" class="p-6">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-lg font-semibold text-slate-800 flex items-center gap-2">
-                        <i class="fa-regular fa-folder-open text-amber-500"></i> รายการไฟล์ใน /202/
-                    </h2>
-                    <a href="./202/" target="_blank" class="text-xs text-blue-600 hover:text-blue-700 font-medium hover:underline flex items-center gap-1">
-                        เปิดไดเรกทอรี <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    
-                    <!-- index.html ในโฟลเดอร์ 202 -->
-                    <a href="202/index.html" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-brands fa-html5 text-xl"></i>
+            <!-- FOLDER 203 (Hidden) -->
+            <div id="folder-203" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 hidden">
+                
+                <!-- Kuabbas -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-emerald-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-slate-100 text-slate-600 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-file-code"></i>
                         </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">index.html</p>
-                            <p class="text-xs text-slate-400">เว็บเพจหลักย่อย</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all text-xs ml-2"></i>
-                    </a>
-
-                    <!-- earthquake_3d.html -->
-                    <a href="202/earthquake_3d.html" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-brands fa-html5 text-xl"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">earthquake_3d.html</p>
-                            <p class="text-xs text-slate-400">เว็บเพจ 3D</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all text-xs ml-2"></i>
-                    </a>
-
-                    <!-- earthquake_map.html -->
-                    <a href="202/earthquake_map.html" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-map-location-dot text-lg"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">earthquake_map.html</p>
-                            <p class="text-xs text-slate-400">แผนที่แผ่นดินไหว</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all text-xs ml-2"></i>
-                    </a>
-
-                    <!-- map1เอาจริง.html -->
-                    <a href="202/map1เอาจริง.html" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-map-pin text-lg"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">map1เอาจริง.html</p>
-                            <p class="text-xs text-slate-400">เว็บแผนที่</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all text-xs ml-2"></i>
-                    </a>
-
-                    <!-- mymap.html -->
-                    <a href="202/mymap.html" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-brands fa-html5 text-xl"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">mymap.html</p>
-                            <p class="text-xs text-slate-400">เว็บเพจ</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all text-xs ml-2"></i>
-                    </a>
-
-                    <!-- presen.html -->
-                    <a href="202/presen.html" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-file-powerpoint text-lg"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">presen.html</p>
-                            <p class="text-xs text-slate-400">งานนำเสนอ</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all text-xs ml-2"></i>
-                    </a>
-
-                    <!-- africa_earthquake.html (อัปเดตชื่อใหม่แล้ว) -->
-                    <a href="202/africa_earthquake.html" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-brands fa-html5 text-xl"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">africa_earthquake.html</p>
-                            <p class="text-xs text-slate-400">เว็บเพจแผ่นดินไหวแอฟริกา</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all text-xs ml-2"></i>
-                    </a>
-
-                    <!-- flowchart.pdf (อัปเดตชื่อใหม่แล้ว) -->
-                    <a href="202/flowchart.pdf" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-rose-100 text-rose-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-file-pdf text-lg"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">flowchart.pdf</p>
-                            <p class="text-xs text-slate-400">ผังงาน Flowchart</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all text-xs ml-2"></i>
-                    </a>
-
-                    <!-- กูอับบาส.xlsx -->
-                    <a href="202/กูอับบาส.xlsx" download class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-file-excel text-lg"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">กูอับบาส.xlsx</p>
-                            <p class="text-xs text-slate-400">ไฟล์ตาราง Excel</p>
-                        </div>
-                        <i class="fa-solid fa-download text-slate-300 group-hover:text-blue-500 transition-all text-xs ml-2"></i>
-                    </a>
-
-                    <!-- วิจัย.docx -->
-                    <a href="202/วิจัย.docx" download class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-file-word text-lg"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">วิจัย.docx</p>
-                            <p class="text-xs text-slate-400">เอกสาร Word</p>
-                        </div>
-                        <i class="fa-solid fa-download text-slate-300 group-hover:text-blue-500 transition-all text-xs ml-2"></i>
-                    </a>
-
-                </div>
-            </div>
-
-            <!-- Tab 203 Content (Hidden by default) -->
-            <div id="content-203" class="p-6 hidden">
-                <div class="flex items-center justify-between mb-4">
-                    <h2 class="text-lg font-semibold text-slate-800 flex items-center gap-2">
-                        <i class="fa-regular fa-folder-open text-amber-500"></i> รายการไฟล์ใน /203/
-                    </h2>
-                    <a href="./203/" target="_blank" class="text-xs text-blue-600 hover:text-blue-700 font-medium hover:underline flex items-center gap-1">
-                        เปิดไดเรกทอรี <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                    </a>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    
-                    <!-- Kuabbas -->
-                    <a href="203/Kuabbas" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-file-code text-lg"></i>
-                        </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">Kuabbas</p>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">Kuabbas</h3>
                             <p class="text-xs text-slate-400">ไฟล์โปรเจกต์</p>
                         </div>
-                        <i class="fa-solid fa-chevron-right text-slate-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all text-xs ml-2"></i>
+                    </div>
+                    <a href="203/Kuabbas" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-500 hover:text-emerald-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดดู <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
+                </div>
 
-                    <!-- กลางวันกลางคืน.png -->
-                    <a href="203/กลางวันกลางคืน.png" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-image text-lg"></i>
+                <!-- กลางวันกลางคืน.png -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-emerald-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-violet-50 text-violet-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-image"></i>
                         </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">กลางวันกลางคืน.png</p>
-                            <p class="text-xs text-slate-400">รูปภาพ PNG</p>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">กลางวันกลางคืน.png</h3>
+                            <p class="text-xs text-slate-400">รูปภาพประกอบ (PNG)</p>
                         </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-300 group-hover:text-blue-500 transition-all text-xs ml-2"></i>
+                    </div>
+                    <a href="203/กลางวันกลางคืน.png" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-500 hover:text-emerald-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดดู <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
+                </div>
 
-                    <!-- ความรุนแรงของผิดดินไหว.png -->
-                    <a href="203/ความรุนแรงของผิดดินไหว.png" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-image text-lg"></i>
+                <!-- ความรุนแรงของผิดดินไหว.png -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-emerald-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-violet-50 text-violet-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-image"></i>
                         </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">ความรุนแรงของผิดดินไหว.png</p>
-                            <p class="text-xs text-slate-400">รูปภาพ PNG</p>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">ความรุนแรงของผิดดินไหว.png</h3>
+                            <p class="text-xs text-slate-400">รูปภาพแผนภูมิความรุนแรง</p>
                         </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-300 group-hover:text-blue-500 transition-all text-xs ml-2"></i>
+                    </div>
+                    <a href="203/ความรุนแรงของผิดดินไหว.png" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-500 hover:text-emerald-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดดู <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
+                </div>
 
-                    <!-- ความลึกความตื้น.png -->
-                    <a href="203/ความลึกความตื้น.png" target="_blank" class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-sky-100 text-sky-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-image text-lg"></i>
+                <!-- ความลึกความตื้น.png -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-emerald-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-violet-50 text-violet-500 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-image"></i>
                         </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">ความลึกความตื้น.png</p>
-                            <p class="text-xs text-slate-400">รูปภาพ PNG</p>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">ความลึกความตื้น.png</h3>
+                            <p class="text-xs text-slate-400">รูปภาพแผนภูมิความลึก</p>
                         </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-slate-300 group-hover:text-blue-500 transition-all text-xs ml-2"></i>
+                    </div>
+                    <a href="203/ความลึกความตื้น.png" target="_blank" class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-500 hover:text-emerald-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        เปิดดู <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
                     </a>
+                </div>
 
-                    <!-- เอาใหม่จริง.csv -->
-                    <a href="203/เอาใหม่จริง.csv" download class="flex items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-blue-50/50 hover:border-blue-200 transition-all group">
-                        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center mr-3 flex-shrink-0 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-file-csv text-lg"></i>
+                <!-- เอาใหม่จริง.csv -->
+                <div class="file-card bg-white p-4 rounded-2xl border border-slate-100 hover:border-emerald-200 shadow-sm transition-all flex items-center justify-between group">
+                    <div class="flex items-center gap-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg flex-shrink-0">
+                            <i class="fa-solid fa-file-csv"></i>
                         </div>
-                        <div class="flex-1 min-w-0">
-                            <p class="text-slate-800 font-medium truncate text-sm">เอาใหม่จริง.csv</p>
+                        <div class="min-w-0">
+                            <h3 class="file-name text-sm font-medium text-slate-700 truncate">เอาใหม่จริง.csv</h3>
                             <p class="text-xs text-slate-400">ชุดข้อมูล CSV</p>
                         </div>
-                        <i class="fa-solid fa-download text-slate-300 group-hover:text-blue-500 transition-all text-xs ml-2"></i>
+                    </div>
+                    <a href="203/เอาใหม่จริง.csv" download class="px-4 py-2 rounded-xl bg-slate-50 hover:bg-emerald-50 text-slate-500 hover:text-emerald-600 text-xs font-medium transition-colors flex items-center gap-1.5 flex-shrink-0">
+                        ดาวน์โหลด <i class="fa-solid fa-download text-[10px]"></i>
                     </a>
-
                 </div>
-            </div>
 
-        </div>
+            </div>
+        </main>
 
         <!-- Footer -->
-        <div class="text-center text-xs text-slate-400 py-2">
-            © Computer Science Assignment Showcase — Kuabbas
-        </div>
+        <footer class="text-center text-xs text-slate-400 pt-6">
+            © Student Assignment Showcase System — Kuabbas
+        </footer>
 
     </div>
 
-    <!-- Tab Switching Script -->
+    <!-- JavaScript Controls -->
     <script>
         function switchTab(folder) {
-            const tab202 = document.getElementById('tab-202');
-            const tab203 = document.getElementById('tab-203');
-            const content202 = document.getElementById('content-202');
-            const content203 = document.getElementById('content-203');
+            const f202 = document.getElementById('folder-202');
+            const f203 = document.getElementById('folder-203');
+            const btn202 = document.getElementById('btn-202');
+            const btn203 = document.getElementById('btn-203');
 
-            if (folder === 'folder202') {
-                // Active 202
-                tab202.className = "flex-1 py-3 px-4 rounded-xl font-medium text-sm sm:text-base transition-all duration-200 flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm border border-slate-200/60";
-                tab203.className = "flex-1 py-3 px-4 rounded-xl font-medium text-sm sm:text-base transition-all duration-200 flex items-center justify-center gap-2 text-slate-600 hover:bg-white/60";
-                
-                content202.classList.remove('hidden');
-                content203.classList.add('hidden');
+            if (folder === '202') {
+                f202.classList.remove('hidden');
+                f203.classList.add('hidden');
+                btn202.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 bg-white text-sky-600 shadow-sm";
+                btn203.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 text-slate-500 hover:text-slate-700";
             } else {
-                // Active 203
-                tab203.className = "flex-1 py-3 px-4 rounded-xl font-medium text-sm sm:text-base transition-all duration-200 flex items-center justify-center gap-2 bg-white text-blue-600 shadow-sm border border-slate-200/60";
-                tab202.className = "flex-1 py-3 px-4 rounded-xl font-medium text-sm sm:text-base transition-all duration-200 flex items-center justify-center gap-2 text-slate-600 hover:bg-white/60";
-                
-                content203.classList.remove('hidden');
-                content202.classList.add('hidden');
+                f203.classList.remove('hidden');
+                f202.classList.add('hidden');
+                btn203.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 bg-white text-emerald-600 shadow-sm";
+                btn202.className = "flex-1 sm:flex-none px-6 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 text-slate-500 hover:text-slate-700";
             }
+            filterFiles();
+        }
+
+        function filterFiles() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const activeTab = document.getElementById('folder-202').classList.contains('hidden') ? 'folder-203' : 'folder-202';
+            const cards = document.querySelectorAll(`#${activeTab} .file-card`);
+
+            cards.forEach(card => {
+                const name = card.querySelector('.file-name').textContent.toLowerCase();
+                if (name.includes(query)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
         }
     </script>
+
 </body>
 </html>
